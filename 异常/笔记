@@ -1,0 +1,58 @@
+异常：
+语法错误
+异常
+
+系统抛出异常
+list1=[]
+list1.pop()
+
+处理异常：
+
+情况一：
+try:
+    有可能出现多种异常
+except 异常类型1:
+    如果有异常执行的代码
+except 异常类型2:
+    pass
+except Exception:
+    pass
+
+情况二：获取Exception的错误原因
+try:
+    有可能出现多种异常
+except:
+    如果有异常执行的代码
+except 异常类型2:
+    pass
+except Exception as err:
+    print(err) ——————> error的内容就是错误原因.
+
+
+情况三： （try与else）
+try:
+    有可能出现多种异常
+except 类型1:
+    如果有异常执行的代码
+else：
+    如果try中没有发生异常则进入的代码
+
+
+情况四：（try与finally）
+场景： 文件操作，数据库操作
+try:
+    有可能出现多种异常
+except 类型1:
+    如果有异常执行的代码
+finally：
+    无论有没有异常都会运行finally代码
+
+
+情况五：(raise)
+raise:主动（手动）报出异常
+def register():
+    username = input('输入用户名：')
+    if len(username) < 6:
+        raise Exception('用户长度必须6位以上')
+    else:
+        print('输入的用户名是：'，username)

@@ -1,0 +1,13 @@
+README.rst
+example.cfg
+setup.cfg
+setup.py
+drop/__init__.py
+drop/defaults.cfg
+drop/drop.py
+drop.egg-info/PKG-INFO
+drop.egg-info/SOURCES.txt
+drop.egg-info/dependency_links.txt
+drop.egg-info/entry_points.txt
+drop.egg-info/requires.txt
+drop.egg-info/top_level.txt

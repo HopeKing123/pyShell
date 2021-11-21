@@ -1,0 +1,100 @@
+函数：
+普通函数：
+    def 函数名([参数...]):
+        函数体
+    1. 如何定义函数
+    2. 调用函数
+
+
+    参数：
+    1. 无参数：
+        def func():
+            pass
+
+        func()
+
+    2. 有参数：
+        一般参数：
+
+        def func(a,b):
+            pass
+
+        func(1,2)
+
+        可变参数：
+
+        def func(**args,**kwargs): args单个元素， kwargs 关键字参数
+            pass
+        func()
+
+        func(1)
+
+        func(1,2,3,a=4)
+
+        默认值：
+        明确给的值是默认成为默认参数
+
+        def func(a=10,b=100)
+            pass
+        func()
+
+        关键字参数：
+        func(b=99)
+
+        返回值：return
+
+        没有返回值：不需要在函数体中使用return,若使用得到None值
+
+        def func():
+            print('-----)
+        x = func()      ----> x = None
+
+        有返回值：
+
+        def func():
+            return 'a'
+
+        x = func()     -----> x = 'a'
+
+        def func():
+            return 'a','b'
+
+        x = func()     -----> x = ('a','b')
+
+
+    3. 嵌套函数 ————> 闭包 ————> 装饰器
+
+    def func():
+        def wrapper():
+            ...
+        return wrapper
+    变量的作用域：LEGB
+    全局变量      局部变量
+    global      nonlocal
+
+    查看变量有哪些：
+    globals()   locals()
+
+    闭包的特点是第二层函数会引用外层函数的参数，然后把wrapper返出来
+
+    装饰器：
+        单层装饰器：
+
+           def decorate1(func):
+                def wrapper(*args,**kwargs):
+                      ...
+           return wrapper
+        @decorate1
+        def house():
+            pass
+
+        多层装饰器：
+           @decorate1
+           @decorate2
+        参数装饰器： 在原有装饰器的基础上再加一层装饰器
+           @decorate1(100)
+
+    4. 匿名函数： lambda 参数：返回值
+
+    5. 递归函数： 有出口，有入口，非特殊不建议使用
+

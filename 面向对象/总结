@@ -1,0 +1,55 @@
+格式：
+# 所有的类名要求首字母大写，多个单词使用驼峰式命名
+# 定义类是通过class关键字：
+class Student([父类]):
+    属性：特征
+    方法：动作
+
+定义好类之后，就可以根据Student类创建出Student类的实例(对象)，创建实例是通过类名+()实现的
+bart = Student()
+
+可以自由地给一个实例变量绑定属性，比如，给实例bart绑定一个name属性
+>>> bart.name = 'Bart Simpson'
+>>> bart.name
+'Bart Simpson'
+
+在创建实例的时候，可以通过定义一个特殊的__init__方法，在创建实例的时候，就把name，score等属性绑上去
+代码：
+class Student(object):
+
+    def __init__(self, name, score):
+        # 属性
+        self.name = name
+        self.score = score
+
+注意到__init__方法的第一个参数永远是self，表示创建的实例本身，因此，在__init__方法内部，就可以把各种属性绑定到self，因为self就指向创建的实例本身。
+有了__init__方法，在创建实例的时候，就不能传入空的参数了，必须传入与__init__方法匹配的参数，但self不需要传，Python解释器自己会把实例变量传进去：
+
+>>> bart = Student('Bart Simpson', 59)
+>>> bart.name
+'Bart Simpson'
+>>> bart.score
+59
+
+类中函数和普通函数的区别：
+类中定义的函数的第一个参数永远是实例变量self。并且，调用时不用传递该参数。除此之外和普通函数没有区别。
+"""
+"""
+数据封装
+在Student类中，每个实例拥有各自的name和score数据，我们可以直接在Student类的内部定义访问数据的函数，这样就把数据给封装起来了。
+这些封装数据的函数和Student类本身是关联起来的，所以称之为类的方法。好处是可以增加新的方法
+
+类属性和对象属性：
+先从自己属性内存空间中找对应的方法，没有则从类属性内存空间中去找
+
+
+
+
+
+
+
+
+
+
+
+
