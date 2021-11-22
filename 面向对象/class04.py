@@ -1,35 +1,45 @@
-# 继承和多态
-class Animal:
-    def run(self):
-        print('Animal is running...')
+# 魔术方法 __new__
+"""
+__init__：初始化魔术方法
+触发时机：初始化对象时触发(不是实例化触发，但和实例化在一个操作中)，并且依赖于__new__
+__new__：实例化魔术方法
+触发时机：在实例化时触发
+
+特点：
+    1.若类中存在new，则会先加载new方法然后在执行init
+"""
 
 
-class Dog(Animal):
-    def run(self):
-        print('Dog is running...')
+class Person:
+    def __init__(self, name):
+        print("——————> init")
+        self.name = name
+
+    # 重写了父的__new__方法,会返回None
+    def __new__(cls, name): # __new__ 向内存要空间 ---> 地址
+        print("——————> new")
+        # 继承父类__new__方法,python3__new__不需要传输参数
+        return super(Person,cls).__new__(cls)   # 申请内存开辟空间，然后return给init初始化
 
 
-class Cat(Animal):
-    def run(self):
-        print('Cat is running...')
+p = Person('jack')
 
 
-# 子类和父类都存在相同的run()方法时，子类的run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run().
-dog = Dog()
-dog.run()
+# 魔术方法 __call__
+"""
 
-cat = Cat()
-cat.run()
+"""
 
 
-def run_twice(animal):
-    animal.run()
-    animal.run()
+# 魔术方法 __del__
+"""
+
+"""
 
 
-class Tortoise(Animal):
-    def run(self):
-        print('Tortoise is running ')
+# 魔术方法 __str__
+"""
+
+"""
 
 
-run_twice(Tortoise())
