@@ -109,7 +109,7 @@ computer = Computer('Mac', 'Mac pro 2018', 'grey')
 
 book = Book('神墓', '辰东', 10)
 
-stu = Student('wangwu', computer, book) # 借取神墓书籍
+stu = Student('wangwu', computer, book)  # 借取神墓书籍
 
 # 看借了那些书
 stu.show_book()
@@ -121,7 +121,77 @@ print('-------------')
 # 再次查看借了哪些书
 stu.show_book()
 
+####################################################################################
 # 继承和多态
+"""
+1.只要创建对象底层就会调用__new__创建空间，然后__init__对象实例化。
+2.继承的关系就是若子类中不存在相应的动作就会往上层父类中去找。
+3.super()函数表示调用上层的父类
+4.如果类继承父类也需要定义自己的__init__，就需要在当前类的__init__调用一下父类__init__
+5.如何调用父类__init__:
+    super().__init(参数)
+    super(类名，对象).__init__(参数)
+6.如果父类有eat(),子类也定义一个eat方法，默认搜索的原则：先找当前类，再去找父类  
+7.父类提供的方法不能满足子类的需求，就需要在子类中定义一个同名的方法。这种行为：重写
+8.子类的方法中也可以调用父类的方法
+    super().方法名(参数)
+"""
+
+
+# 继承
+# 父类
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def eat(self, *args, **kwargs):
+        print(self.name + "正在吃饭...")
+
+    def run(self):
+        print(self.name + "正在跑步...")
+
+
+# 子类
+class Student(Person):
+    def __init__(self, name, age, clazz):
+        # 继承父类,将自己的name和age的值传给父类
+        super().__init__(name, age)
+        self.clazz = clazz
+
+    def study(self, course):
+        print("{}正在学习{}课程".format(self.name, course))
+
+    # 导致阴影是因为父类没有参数，而子类有参
+    def eat(self, foold):
+        super().eat()
+        print(self.name + "吃的是{}".format(foold))
+
+
+class Employee(Person):
+    def __init__(self, name, age, salary, manager):
+        super().__init__(name, age)
+        self.salary = salary
+        self.manager = manager
+
+
+class Doctor(Person):
+    def __init__(self, name, age, patients):
+        # 判断属性是否属于Doctor类型
+        super(Doctor, self).__init__(name, age)
+        self.patients = patients
+
+
+# 对象
+s = Student('jack', 18, '2020')
+s.study('python基础')
+s.eat('鲍鱼龙虾面')
+# 对象
+e = Employee('tom', 23, 10000, 'king')
+# 对象
+lists = ['zhangsan', 'lisi', 'wangwu', 'zhaoliu']
+d = Doctor('lucy', 30, lists)
+
 # class Animal:
 #     def run(self):
 #         print('Animal is running...')
