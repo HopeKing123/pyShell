@@ -72,21 +72,20 @@ class Student1:
         self.name = name
         self.__age = age
 
-    # 通过装饰器伪装私有化属性
+    # 通过装饰器伪装方法，把方法变成属性
     # 先有get
     @property
     def age(self):
         return self.__age
 
-    # 通过调用上述age来绑定如下set动作
-    # 再有set，因为set依赖get
+    # @property把方法变成属性之后，会创建另一个装饰器@age.setter
+    # 通过调用上述get的age来绑定如下set的age动作，再用set，因为set依赖get
     @age.setter
-    def age(self,age):
+    def age(self, age):
         if age > 0 and age < 100:
             self.__age = age
         else:
             print("年龄不合法")
-
 
     # 定义公有set和get方法
     # set为了赋值
