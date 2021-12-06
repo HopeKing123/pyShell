@@ -419,7 +419,6 @@ d2.foo()
 d2.bar()
 print(D.__mro__)
 
-
 # 多态
 """
 多态是指一类事务有多种形态。
@@ -487,7 +486,6 @@ dog = Dog("大黄", 4)
 person = Person("李四")
 person.feed_pet(cat)
 
-
 # 多态
 # 定义函数
 # def run_twice(animal):
@@ -502,6 +500,66 @@ person.feed_pet(cat)
 #
 # # 调用函数
 # run_twice(Tortoise())
+
+
+"""
+getattr()函数用于返回一个对象属性值
+语法: getattr(object, name[, default])
+object -- 对象。
+name -- 字符串，对象属性。
+default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError。
+返回值：返回对象属性值
+"""
+
+
+class A(object):
+    bar = 1
+
+
+a = A()
+# 获取a对象的属性bar值
+getattr(a, 'bar')
+
+"""
+setattr()函数对应getattr(),用于设置属性值，该属性不一定是存在的。
+语法：setattr(object, name, value)
+object -- 对象。
+name -- 字符串，对象属性。
+value -- 属性值
+"""
+
+
+class B(object):
+    bar = 1
+
+
+b = B()
+# 获取属性bar值
+getattr(b, 'bar')
+# 设置属性bar值
+setattr(b, 'bar', 5)
+
+"""
+hasattr() 函数用于判断对象是否包含对应的属性
+语法：hasattr(object, name)
+参数：
+    object -- 对象。
+    name -- 字符串，属性名。
+返回值：如果对象有该属性返回True，否则返回False
+"""
+
+
+class Coordinate:
+    x = 10
+    y = -5
+    z = 0
+
+
+point1 = Coordinate()
+print(hasattr(point1, 'x'))
+print(hasattr(point1, 'y'))
+print(hasattr(point1, 'z'))
+print(hasattr(point1, 'no'))
 
 """
 复习流程：
