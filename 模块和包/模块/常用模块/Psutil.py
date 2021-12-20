@@ -35,4 +35,43 @@ sswap(total=2047995904, used=311758848, free=1736237056, percent=15.2, sin=50343
 sdiskusage(total=42140479488, used=13504188416, free=26686947328, percent=33.6)
 >>> psutil.disk_io_counters()   # 磁盘IO
 sdiskio(read_count=715655, write_count=22065466, read_bytes=27534892544, write_bytes=480235439104, read_time=1882768, write_time=27656920, read_merged_count=7498, write_merged_count=25945498, busy_time=9293272)
+
+
+获取网络信息:
+psutil可以获取网络接口和网络连接信息：
+psutil.net_io_counters()    # 获取网络读写字节/包的个数
+psutil.net_if_addrs()       # 获取网络接口信息
+psutil.net_connections()    # 获取当前网络连接信息
+
+
+获取进程信息:
+通过psutil可以获取所有进程的详细信息:
+psutil.pids()   # 所有进程ID
+p = psutil.Process(指定进程)    # 获取指定进程，其实就是当前python交互环境
+p.name() # 进程名称
+p.ext()  # 进程exe路径
+p.cwd()  # 进程工作目录
+p.cmdline() # 进程启动的命令行
+p.ppid() # 父进程ID
+p.parent() # 父进程
+p.children()    # 子进程列表
+p.status()  # 进程状态
+p.username() # 进程用户名
+p.create_time() # 进程创建时间
+p.terminal()    # 进程终端
+p.cpu_times()   # 进程使用的CPU时间
+p.memory_info() # 进程使用的内存
+p.open_files()  # 进程打开的文件
+p.connections() # 进程相关网络连接
+p.num_threads() # 进程的线程数量
+p.threads()     # 所有线程信息
+p.environ()     # 进程环境变量
+p.terminate()   # 结束进程，自己结束自己
+
+# 模拟ps命令结果
+psutil.test()
+
+# 查看运行用户
+psutil.users()
+
 """
