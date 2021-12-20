@@ -60,7 +60,7 @@ p.username() # 进程用户名
 p.create_time() # 进程创建时间
 p.terminal()    # 进程终端
 p.cpu_times()   # 进程使用的CPU时间
-p.memory_info() # 进程使用的内存
+p.memory_info() # 进程使用的内存   # 注意ps输出以千字节为单位,而psutil的rss以字节为单位
 p.open_files()  # 进程打开的文件
 p.connections() # 进程相关网络连接
 p.num_threads() # 进程的线程数量
