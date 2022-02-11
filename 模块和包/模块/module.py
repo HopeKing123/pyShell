@@ -3,6 +3,8 @@
 __all__ = ['add', 'number', 'Module']
 
 # 变量
+import os
+
 number = 100
 name = 'module'
 
