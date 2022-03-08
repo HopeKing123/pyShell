@@ -166,3 +166,4 @@ BITOP NOT destkey srckey，对给定 key 求逻辑非，并将结果保存到 de
 # 如果 key 不存在，那么它将首先创建一个空字符串的key，再执行追加操作，这种情况 APPEND 将类似于 SET 操作。
 # conn.append('number04', 11)
 # print(conn.get('number04'))
+

@@ -94,3 +94,4 @@ SCAN命令是一个基于游标的迭代器。这意味着命令每次被调用�
 # 如果key的类型不是一个集合,则返回错误.
 # conn.srem('set1', 'Hello')
 # print(conn.smembers('set1'))
+
