@@ -132,3 +132,4 @@ if __name__ == '__main__':
     app.master.title('图形增强软件程序')
     # 调用主消息循环:
     app.mainloop()
+
