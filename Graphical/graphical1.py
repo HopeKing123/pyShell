@@ -21,6 +21,8 @@ from tkinter import *
 import tkinter.messagebox as messagebox
 # 导入tkinter包中的filedialog类(文件选择对话框类)
 import tkinter.filedialog as filedialog
+# 导入selenium WEB包中的webdriver类
+from selenium import webdriver
 
 # 导入模块
 import base64, requests, json, random
@@ -44,15 +46,39 @@ class Application(Frame):
         self.pack()
         # 把Widget（装置）加入到父容器中，并实现布局，这里是将方法加入父容器中
         self.createWidgets()
+        self.createPage()
 
+    # 图像增强部件方法
     # 创建createWidgets(装置)方法（子容器）
     def createWidgets(self):
         # 按钮小部件。
         # 用父控件构建一个按钮小部件。
-        self.alertButton = Button(self, text="图像增强按钮", command=self.FileSelectionBox)
+        self.alertButton = Button(self, text="图像增强按钮", height="10", width="15",
+                                  command=self.FileSelectionBox)
         # 把Widget（装置）加入到父容器中，并实现布局
         self.alertButton.pack(side='left')
 
+    # 创建页面部件方法
+    # 创建createPage(装置)方法（子容器）
+    def createPage(self):
+        self.pageInput = Entry(self)
+        self.pageInput.pack()
+        # 按钮小部件。
+        # 用父控件构建一个按钮小部件。
+        self.pageButton = Button(self, text="页面搜索按钮", height="10", width="15",
+                                 command=self.pagePop)
+        # 把Widget（装置）加入到父容器中，并实现布局
+        self.pageButton.pack(side='left')
+
+    # 页面弹出方法
+    def pagePop(self):
+        # 获取用户输入数据
+        User = self.pageInput.get()
+        Web = webdriver.Chrome()
+        Web.get(User)
+        Web.close()
+
+    # 文件选择框方法
     def FileSelectionBox(self):
         # 选择文件
         self.Filepath = filedialog.askopenfilenames()
@@ -132,5 +158,3 @@ if __name__ == '__main__':
     app.master.title('图形增强软件程序')
     # 调用主消息循环:
     app.mainloop()
-
-

@@ -136,3 +136,4 @@ timeout 参数表示的是一个指定阻塞的最大秒数的整型值。当 ti
 #     conn.blpop(["list13", "list14"], timeout=1)
 #     print(conn.lrange("list13", 0, -1), conn.lrange("list14", 0, -1))
 
+

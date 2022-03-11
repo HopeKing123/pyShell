@@ -15,3 +15,4 @@ conn.set('name01','lisi')
 
 # 取出键值对
 print(conn.get('name01'))
+

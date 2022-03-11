@@ -21,6 +21,7 @@ xx - 如果设置为True，则只有name存在时，当前set操作才执行
 # 1.ex - 过期时间（秒） 这里过期时间是3秒，3秒后p，键的值就变成None
 # conn.set('name', 'wangwu', ex=3)
 
+
 # 取出键值对
 # print(conn.get('name'))
 

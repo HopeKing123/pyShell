@@ -18,6 +18,7 @@ python操作Mysql数据库：
 
 
 
+
 python操作Redis数据库：
     Python定义了一套操作数据库的API接口，任何数据库要连接到Python，只需要提供符合Python标准的数据库驱动即可。
 
