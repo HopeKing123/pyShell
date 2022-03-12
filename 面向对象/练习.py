@@ -116,51 +116,74 @@
 
 # 练习五：
 # python内置类属性调用
-class Employee:
-    """所有员工的基类"""
-    empCount = 0
+# class Employee:
+#     """所有员工的基类"""
+#     empCount = 0
+#
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
+#         Employee.empCount = + 1
+#
+#     def displayCount(self):
+#         print("Total Employee %d" % Employee.empCount)
+#
+#     def displayEmployee(self):
+#         print("Name : ", self.name, ", Salary: ", self.salary)
+#
+#
+# print('Employee.__doc__:', Employee.__doc__)
+# print('Employee.__name__:', Employee.__name__)
+# print('Employee.__module__:', Employee.__module__)
+# print('Employee.__bases__:', Employee.__bases__)
+# print('Employee.__dict__:', Employee.__dict__)
 
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-        Employee.empCount = + 1
-
-    def displayCount(self):
-        print("Total Employee %d" % Employee.empCount)
-
-    def displayEmployee(self):
-        print("Name : ", self.name, ", Salary: ", self.salary)
-
-
-print('Employee.__doc__:', Employee.__doc__)
-print('Employee.__name__:', Employee.__name__)
-print('Employee.__module__:', Employee.__module__)
-print('Employee.__bases__:', Employee.__bases__)
-print('Employee.__dict__:', Employee.__dict__)
-
-
-# 练习六
-# 统计学生人数，可以给student类增加一个类属性，每创建一个实例，该属性自动增加：
-class Student:
-    count = 0
-
-    def __init__(self, name):
-        self.name = name
-
-        Student.count += 1
+# 练习六 类方法
+# class Person:
+#     __age = 18
+#
+#     def show(self):
+#         print('-------->', Person.__age)
+#
+#     @classmethod
+#     def update_age(cls):
+#         cls.__age = 20
+#         print('-------->类方法')
+#
+#
+# # 调用类方法
+# Person.update_age()
+# # 调用普通方法
+# p = Person()
+# p.show()
 
 
-# 测试:
-if Student.count != 0:
-    print('测试失败!')
-else:
-    bart = Student('Bart')
-    if Student.count != 1:
-        print('测试失败!')
-    else:
-        lisa = Student('Bart')
-        if Student.count != 2:
-            print('测试失败!')
-        else:
-            print('Students:', Student.count)
-            print('测试通过!')
+# 练习七 静态方法
+class Person:
+    __age = 18
+
+    def __init__(self):
+        self.name = 'jack'
+
+    def show(self):
+        print('-------->', Person.__age)
+
+    # 类方法
+    @classmethod
+    def update_age(cls):
+        cls.__age = 20
+        print('-------->类方法')
+
+    # 静态方法
+    @staticmethod
+    def test():
+        print('------->静态方法')
+        print(Person.__age)
+
+
+# 调用类方法
+Person.update_age()
+Person.test()
+# 调用普通方法
+p = Person()
+p.show()
