@@ -1,0 +1,39 @@
+python操作Mysql数据库：
+    Python定义了一套操作数据库的API接口，任何数据库要连接到Python，只需要提供符合Python标准的数据库驱动即可。
+
+概念：
+    表是数据库中存放关系数据的集合，一个数据库里面通常都包含多个表，比如学生的表，班级的表，学校的表，等等。表和表之间通过外键关联。
+    要操作关系数据库，首先需要连接到数据库，一个数据库连接称为Connection；
+    连接到数据库后，需要打开游标，称之为Cursor，通过Cursor执行SQL语句，然后，获得执行结果。
+
+安装MYSQL驱动：
+    MySQL官方提供了mysql-connector-python驱动，但是安装的时候需要给pip命令加上参数--allow-external
+    $ pip install mysql-connector-python --allow-external mysql-connector-python
+    如果上面的命令安装失败，可以试试另一个驱动：
+    $ pip install mysql-connector
+
+帮助文档：
+    https://www.liaoxuefeng.com/wiki/1016959663602400/1017801397501728
+
+
+
+
+
+python操作Redis数据库：
+    Python定义了一套操作数据库的API接口，任何数据库要连接到Python，只需要提供符合Python标准的数据库驱动即可。
+
+概念：
+    redis提供两个类Redis和StrictRedis用于实现Redis的命令，StrictRedis用于实现大部分官方的命令，并使用官方的语法和命令，Redis是StrictRedis的子类，用于向后兼容旧版本的redis-py。
+
+安装Redis驱动：
+    # pip install redis
+
+帮助文档：
+    https://www.runoob.com/w3cnote/python-redis-intro.html
+
+
+
+
+
+
+
