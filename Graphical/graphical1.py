@@ -61,22 +61,28 @@ class Application(Frame):
     # 创建页面部件方法
     # 创建createPage(装置)方法（子容器）
     def createPage(self):
-        self.pageInput = Entry(self)
-        self.pageInput.pack()
         # 按钮小部件。
         # 用父控件构建一个按钮小部件。
         self.pageButton = Button(self, text="页面搜索按钮", height="10", width="15",
-                                 command=self.pagePop)
+                                 command=self.Textinput)
         # 把Widget（装置）加入到父容器中，并实现布局
         self.pageButton.pack(side='left')
 
+    # 文本输入方法
+    def Textinput(self):
+        # 显示简单文本的输入小部件
+        self.pageInput = Entry(self)
+        # 把Widget（装置）加入到父容器中，并实现布局，这里是将方法加入父容器中
+        self.pageInput.pack()
+        # 获取用户输入数据，返回文本
+        self.User = self.pageInput.get()
+        print(self.User)
+
     # 页面弹出方法
-    def pagePop(self):
-        # 获取用户输入数据
-        User = self.pageInput.get()
-        Web = webdriver.Chrome()
-        Web.get(User)
-        Web.close()
+    # def pagePop(self):
+    #     Web = webdriver.Chrome()
+    #     Web.get(self.User)
+    #     Web.close()
 
     # 文件选择框方法
     def FileSelectionBox(self):
